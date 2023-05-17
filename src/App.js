@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {BrowserRouter, Route, Routes, Navigate} from 'react-router-dom';
+import Nav from "./components/Nav/Nav";
+import MainPage from "./components/pages/MainPage";
+import BlogPage from "./components/pages/BlogPage";
+import WorksPage from "./components/pages/WorksPage";
+import PostPage from "./components/pages/PostPage";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <BrowserRouter>
+    <Nav/>
+    <Routes>
+
+      <Route path='/portfolio-website/index.html' element={<Navigate to='/'/>}/>
+      {/* <Route path='/' element={<Navigate to='/'/>}/> */}
+
+      <Route path='/portfolio-website/' element={<MainPage/>}/>
+      <Route path='/portfolio-website/blog' element={<BlogPage/>}/>
+      <Route path='/portfolio-website/works' element={<WorksPage/>}/>
+
+      <Route path='/portfolio-website/works/:id' element={<WorksPage/>}/>
+      <Route path='/portfolio-website/blog/:id' element={<PostPage/>}/>
+    </Routes>
+    <Footer/>
+  </BrowserRouter>
   );
 }
 
