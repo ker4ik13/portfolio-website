@@ -23,7 +23,9 @@ const FeaturedWorks = () => {
                 .slice(-3)
                 .reverse()
                 .map((work) => (
-                    <FeatureWork key={work.id} work={work}/>
+                    <Link  to={`./works/${work.id}`} key={work.id}>
+                        <FeatureWork work={work}/>
+                    </Link>
                 ))}
             </div>
         </div>

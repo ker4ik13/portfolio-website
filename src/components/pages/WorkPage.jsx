@@ -1,31 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import blogPosts from "../data/posts.json"
+import works from "../data/works.json"
 
-const PostPage = (props) => {
+const WorkPage = (props) => {
 
-    const {id} = useParams()
 
-    const [post, setPost] = useState({})
-
-    useEffect(() => {
-        setPost(blogPosts[id -1], [id -1])
-    })
+    const {id} = useParams();
+    const [work, setWork] = useState({});
     
+    useEffect(() => {
+        setWork(works[id -1])
+    })
 
-
+    
     return(
         <main className="main">
             <div className="main__wrapper">
-                <h1 className="page__title">{post.title}</h1>
+                <h1 className="page__title">{work.title}</h1>
                 <div className="post__info">
-                    <p className="featureWork__year red">{post.date}</p>
-                    <p className="post__theme">{post.theme}</p>
+                    <p className="featureWork__year red">{work.date}</p>
+                    <p className="post__theme">{work.theme}</p>
                 </div>
                 <div className="post__content">
-                    <div className="post__text">{post.description}</div>
+                    <div className="post__text">{work.description}</div>
 
-                    {Object.values(post)
+                    {Object.values(work)
                     .slice(5)
                     .map(item => (
                         <div className="post__text">{item}</div>
@@ -37,4 +36,4 @@ const PostPage = (props) => {
     )
 }
 
-export default PostPage
+export default WorkPage

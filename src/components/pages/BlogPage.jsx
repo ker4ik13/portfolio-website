@@ -2,19 +2,13 @@ import React, { useEffect, useState } from "react";
 import blogPosts from "../data/posts.json"
 import RecentPost from "../RecentPosts/RecentPost";
 import { Link } from "react-router-dom";
+import renderViewPosts from "../utils/renderPosts";
 
 const BlogPage = () => {
 
     const [posts, setPosts] = useState([])
     const [viewPosts, setViewPosts] = useState(5);
 
-    const renderViewPosts = () => {
-        if(viewPosts < posts.length){
-            setViewPosts(viewPosts + 5)
-        } else{
-            return;
-        }
-    }
 
     useEffect(() => {
         setPosts(blogPosts)
@@ -22,6 +16,7 @@ const BlogPage = () => {
 
     return(
         <main className="main">
+            <div className="main__wrapper">
             <h1 className="page__title">Блог</h1>
             {posts
             .slice(-viewPosts)
@@ -31,8 +26,11 @@ const BlogPage = () => {
                     <RecentPost post={post} secondClass='fullwidth'/>
                 </Link>
             ))}
-            {viewPosts <= posts.length && 
-                <button type="button" className="moreButton" onClick={renderViewPosts}>Показать еще</button>
+            </div>
+            {viewPosts < posts.length && 
+                <button type="button" className="moreButton" onClick={() => {
+                    renderViewPosts(setViewPosts, viewPosts, posts)
+                }}>Показать еще</button>
             }
         </main>
     )

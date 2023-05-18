@@ -4,6 +4,7 @@ import Nav from "./components/Nav/Nav";
 import MainPage from "./components/pages/MainPage";
 import BlogPage from "./components/pages/BlogPage";
 import WorksPage from "./components/pages/WorksPage";
+import WorkPage from "./components/pages/WorkPage";
 import PostPage from "./components/pages/PostPage";
 import Footer from "./components/Footer/Footer";
 
@@ -20,7 +21,7 @@ function App() {
       <Route path='/portfolio-website/blog' element={<BlogPage/>}/>
       <Route path='/portfolio-website/works' element={<WorksPage/>}/>
 
-      <Route path='/portfolio-website/works/:id' element={<WorksPage/>}/>
+      <Route path='/portfolio-website/works/:id' element={<WorkPage/>}/>
       <Route path='/portfolio-website/blog/:id' element={<PostPage/>}/>
     </Routes>
     <Footer/>

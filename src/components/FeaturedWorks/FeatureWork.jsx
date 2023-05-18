@@ -12,7 +12,7 @@ const FeatureWork = (props) => {
 
 
     return(
-        <Link to={`./works/${work.id}`} className="featureWork">
+        <div className={`featureWork ${props.secondClass}`}>
             <img src="./assets/img/photos/Rectangle 30.jpg" alt="Work" className="featureWork__img" />
             <div className="featureWork__content">
                 <h2 className="featureWork__title">{work.title}</h2>
@@ -22,7 +22,7 @@ const FeatureWork = (props) => {
                 </div>
                 <div className="featureWork__description">{work.description}</div>
             </div>
-        </Link>
+        </div>
     )
 }
 
