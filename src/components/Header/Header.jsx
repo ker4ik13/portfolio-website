@@ -9,7 +9,7 @@ const Header = (props) => {
                 <button className="header__button" type="button">Посмотреть резюме</button>
             </div>
             <div className="header__photo">
-                <img src="../assets/img/photos/main-photo.jpg" alt="" className="header__img" />
+                <img src="./assets/img/photos/main-photo.jpg" alt="" className="header__img" />
             </div>
         </header>
     )
